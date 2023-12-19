@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import axios from 'axios'
 import toast from 'react-hot-toast'
-import { Router } from 'next/router'
+
 export default function LoginPage() {
   const [user, setUser] = React.useState({
     email: '',
