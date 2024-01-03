@@ -8,11 +8,13 @@ connect()
 
 export async function POST(request: NextRequest) {
   try {
+    //esperamos la respuesta de del json
     const reqBody = await request.json()
+    //destructuramos el reqBody en su email y password que sera la info mandada del front del login
     const { email, password } = reqBody
     console.log(reqBody)
 
-    //ver si el usuario existe
+    //ver si el usuario existe en base al email usamos el user
 
     const user = await User.findOne({ email })
 

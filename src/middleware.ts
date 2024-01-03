@@ -2,7 +2,10 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export function middleware(request: NextRequest) {
+  //creando las condiciones a las rutas
   const path = request.nextUrl.pathname
+
+  //seleccionando que ruta sera publica
   const isPublicPath = path === '/login' || path === '/signup'
   const token = request.cookies.get('token')?.value || ''
   if (isPublicPath && token) {
