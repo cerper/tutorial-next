@@ -14,7 +14,7 @@ export default function LoginPage() {
   const [loading, setLoading] = React.useState(false)
   const router = useRouter()
 
-  const onLogin = async () => {
+  const OnLogin = async () => {
     try {
       setLoading(true)
       const response = await axios.post('/api/users/login', user)
@@ -61,7 +61,7 @@ export default function LoginPage() {
       />
 
       <button
-        onClick={onLogin}
+        onClick={OnLogin}
         className="p-3 border border-gray-300 rounded-lg mb-4 mt-4 bg-sky-500 hover:bg-sky-700"
         type="submit"
       >

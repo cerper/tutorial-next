@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import axios from 'axios'
 
-export default function forgotPasswordPage() {
+export default function ForgotPasswordPage() {
   const router = useRouter()
   const [user, setUser] = useState({
     email: '',
@@ -33,7 +33,7 @@ export default function forgotPasswordPage() {
         onChange={(e) => setUser({ ...user, email: e.target.value })}
       />
       <button
-        onClick={sendEmail}
+        onClick={SendEmail}
         className="p-3 border border-gray-300 rounded-lg mb-4 mt-4 bg-sky-500 hover:bg-sky-700"
         type="submit"
       >

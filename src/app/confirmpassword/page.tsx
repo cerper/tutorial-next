@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
-export default function confirmPasswordPage() {
+export default function ConfirmPasswordPage() {
   const router = useRouter()
   const [user, setUser] = useState({
     password: '',
@@ -17,7 +17,7 @@ export default function confirmPasswordPage() {
   const [buttonDisabled, setButtonDisabled] = React.useState(false)
   //llamando la api de confirm password
 
-  const confirmPassword = async () => {
+  const ConfirmPassword = async () => {
     try {
       await axios.post('/api/users/confirmpassword', user)
       setConfirm(true)
@@ -64,7 +64,7 @@ export default function confirmPasswordPage() {
         onChange={(e) => setUser({ ...user, password2: e.target.value })}
       />
       <button
-        onClick={confirmPassword}
+        onClick={ConfirmPassword}
         type="submit"
         className="p-3 border border-gray-300 rounded-lg mb-4 mt-4 bg-sky-500 hover:bg-sky-700"
       >
