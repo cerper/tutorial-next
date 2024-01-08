@@ -11,7 +11,7 @@ export default function ForgotPasswordPage() {
   })
   const [loading, setLoading] = useState(false)
 
-  const SendEmail = async () => {
+  const sendEmail = async () => {
     try {
       setLoading(true)
       const resp = await axios.post('/api/users/forgotpassword', user)
@@ -33,7 +33,7 @@ export default function ForgotPasswordPage() {
         onChange={(e) => setUser({ ...user, email: e.target.value })}
       />
       <button
-        onClick={SendEmail}
+        onClick={sendEmail}
         className="p-3 border border-gray-300 rounded-lg mb-4 mt-4 bg-sky-500 hover:bg-sky-700"
         type="submit"
       >

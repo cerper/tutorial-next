@@ -17,7 +17,7 @@ export default function ConfirmPasswordPage() {
   const [buttonDisabled, setButtonDisabled] = React.useState(false)
   //llamando la api de confirm password
 
-  const ConfirmPassword = async () => {
+  const confirmPassword = async () => {
     try {
       await axios.post('/api/users/confirmpassword', user)
       setConfirm(true)
@@ -64,7 +64,7 @@ export default function ConfirmPasswordPage() {
         onChange={(e) => setUser({ ...user, password2: e.target.value })}
       />
       <button
-        onClick={ConfirmPassword}
+        onClick={confirmPassword}
         type="submit"
         className="p-3 border border-gray-300 rounded-lg mb-4 mt-4 bg-sky-500 hover:bg-sky-700"
       >

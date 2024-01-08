@@ -43,7 +43,7 @@ export default function LoginPage() {
 
       <label htmlFor="Email">Email</label>
       <input
-        className="p-3 border border-gray-300 rounded-lg mb-4 mt-4 focus:outline-none focus:border-gray-600"
+        className="text-black p-3 border border-gray-300 rounded-lg mb-4 mt-4 focus:outline-none focus:border-gray-600"
         type="text"
         id="email"
         value={user.email}
