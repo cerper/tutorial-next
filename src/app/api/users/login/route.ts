@@ -3,14 +3,17 @@ import User from '@/models/userModel'
 import { NextRequest, NextResponse } from 'next/server'
 import bcryptjs from 'bcryptjs'
 import jwt from 'jsonwebtoken'
+import { sendEmail } from '@/helpers/mailer'
 
 connect()
 
 export async function POST(request: NextRequest) {
   try {
     //esperamos la respuesta de del json
+
     const reqBody = await request.json()
     //destructuramos el reqBody en su email y password que sera la info mandada del front del login
+
     const { email, password } = reqBody
     console.log(reqBody)
 
@@ -50,6 +53,7 @@ export async function POST(request: NextRequest) {
     response.cookies.set('token', token, {
       httpOnly: true,
     })
+
     return response
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 })

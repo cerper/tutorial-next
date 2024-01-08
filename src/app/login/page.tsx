@@ -13,6 +13,7 @@ export default function LoginPage() {
   const [buttonDisabled, setButtonDisabled] = React.useState(false)
   const [loading, setLoading] = React.useState(false)
   const router = useRouter()
+
   const onLogin = async () => {
     try {
       setLoading(true)
@@ -66,6 +67,8 @@ export default function LoginPage() {
       >
         {buttonDisabled ? 'Enter data' : 'Login'}
       </button>
+
+      <Link href="/forgotpassword">Forgot Password?</Link>
       <Link href="/signup">Visit Signup page</Link>
     </div>
   )

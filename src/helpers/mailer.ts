@@ -32,15 +32,32 @@ export const sendEmail = async ({ email, emailType, userId }: any) => {
       to: email,
       subject:
         emailType === 'VERIFY' ? 'Verify your email' : 'Reset your password',
+
       html: `<p>Click <a href="${
         process.env.DOMAIN
       }/verifyemail?token=${hashToken}">here</a> to ${
         emailType === 'VERIFY' ? 'verify your email' : 'reset your password'
-      }</p>`,
+      } or copy and paste the link below in your browser.<br> ${
+        process.env.DOMAIN
+      }/verifyemail?token=${hashToken}</p>`,
+    }
+    const mailOptions2 = {
+      from: 'davidlovera16@gmail.com',
+      to: email,
+      subject:
+        emailType === 'FORGOT' ? 'Reset your Password' : 'Verify your email',
+      html: `<p>Click <a href="${
+        process.env.DOMAIN
+      }/confirmpassword?token=${hashToken}">here</a> to ${
+        emailType === 'FORGOT' ? 'Reset your Password' : 'Verify your email'
+      } or copy and paste the link below in your browser.<br> ${
+        process.env.DOMAIN
+      }/confirmpassword?token=${hashToken}</p>`,
     }
 
     const mailResponse = await transport.sendMail(mailOptions)
-    return mailResponse
+    const mailResponse2 = await transport.sendMail(mailOptions2)
+    return mailResponse || mailResponse2
   } catch (error: any) {
     throw new Error(error.message)
   }
