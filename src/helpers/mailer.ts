@@ -57,7 +57,12 @@ export const sendEmail = async ({ email, emailType, userId }: any) => {
 
     const mailResponse = await transport.sendMail(mailOptions)
     const mailResponse2 = await transport.sendMail(mailOptions2)
-    return mailResponse || mailResponse2
+    if (mailResponse) {
+      return mailResponse
+    }
+    if (mailResponse2) {
+      return mailResponse2
+    }
   } catch (error: any) {
     throw new Error(error.message)
   }

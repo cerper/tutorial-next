@@ -16,6 +16,7 @@ export default function ForgotPasswordPage() {
       setLoading(true)
       const resp = await axios.post('/api/users/forgotpassword', user)
       console.log(resp)
+      router.push('/login')
     } catch (error: any) {
       console.log(' Failed ', error.message)
     }
